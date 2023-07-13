@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext, useEffect } from "react";
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+} from "react-router-dom";
+
+import Home from "./pages/home/home";
+import Marketplace from "./pages/marketplace/marketplace";
+import Signup from "./pages/signup/signup";
+import { GlobalContext } from "./contexts/global_context";
 
 function App() {
+  const { ethereum } = window;
+  const { metamask, setMetamask } = useContext(GlobalContext);
+
+  const checkMetamaskAvailability = async () => {
+    if (!ethereum) {
+      setMetamask((prevMetamask) => {
+        return { ...prevMetamask, haveMetamask: false }
+      })
+    }
+    setMetamask((prevMetamask) => {
+      return { ...prevMetamask, haveMetamask: true }
+    });
+  };
+
+  console.log(metamask);
+
+  useEffect(() => {
+    checkMetamaskAvailability();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/marketplace" element={<Marketplace />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </Router>
   );
 }
 
