@@ -1,6 +1,8 @@
 # Pixel Metaverse Frontend
 Pixel Metaverse is a supply chain application for authentic artworks and premium collectibles backed by smart contracts and web3.
 
+[Backend Repository](https://github.com/BRAINIAC2677/pixel_metaverse_backend)
+
 <img src="assets/pixel_metaverse.png" height = auto width = 700>
 <br/>
 
@@ -89,3 +91,8 @@ Pixel Metaverse is a supply chain application for authentic artworks and premium
 <br>
 
 
+## Contribute:
+Contributions are always welcome! Please read the [contribution guidelines](./CONTRIBUTION.md) first.
+
+## License:
+[LICENSE](./LICENSE.md)
