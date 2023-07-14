@@ -8,7 +8,7 @@ const Navbar = () => {
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex-shrink-0">
-                        <span className="text-lg font-bold text-white">Logo</span>
+                        <span className="text-lg font-bold text-white">Pixel Metaverse</span>
                     </div>
                     <div className="hidden md:block">
                         <div className="flex items-baseline ml-10 space-x-4">
