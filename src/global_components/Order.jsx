@@ -1,8 +1,8 @@
 import React from "react";
 
-import Navbar from "../../global_components/navbar";
+import Navbar from "./navbar";
 
-function Home() {
+function Order() {
     return (
         <div>
             <Navbar />
@@ -10,4 +10,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Order;

@@ -11,8 +11,16 @@ function GlobalContextProvider(props) {
         'contractWithSigner': null,
     });
 
+    const [infos, setInfos] = useState({
+        'artworks': [],
+        'originalArtworks': [],
+        'artists': [],
+        'orders': [],
+        'auctionItems': [],
+    });
+
     return (
-        <GlobalContext.Provider value={{ metamask, setMetamask }}>
+        <GlobalContext.Provider value={{ metamask, setMetamask, infos, setInfos }}>
             {props.children}
         </GlobalContext.Provider>
     );

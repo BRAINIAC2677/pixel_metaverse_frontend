@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Pixel Metaverse Frontend
+Pixel Metaverse is a supply chain application for authentic artworks and premium collectibles backed by smart contracts and web3.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="assets/pixel_metaverse.png" height = auto width = 700>
+<br/>
 
-## Available Scripts
+## Contract Deployment:
+- Sepolia Testnet
+- ArtworkToken Contract Transaction Hash [Etherscan Ref](https://sepolia.etherscan.io/address/0xFe58726115AF6267516eBaD2164cce870D2fFDA0)
+- Marketplace Contract Transaction Hash [Etherscan Ref](https://sepolia.etherscan.io/address/0x9F7198B00adaa0DB035F75C94C7946b1c3be73bf)
 
-In the project directory, you can run:
+## Tech Stack:
+    - Solidity
+    - Sepolia Testnet
+    - Remix
+    - IPFS
+    - React JS
+    - Ethers JS
+## Public function from smart contract:
+- ### Artist/Seller
+    - function register_artist(
+        string memory _name,
+        string memory _img_ipfs_hash
+    ) public 
+    - function login_artist() public view returns (Artist memory) 
+    - function add_artwork(
+        uint256 _price,
+        uint256 _count,
+        string memory _description,
+        string memory _img_ipfs_hash
+    ) public 
+    - function request_verification(uint256 _original_artwork_id) public
+ 
+- ### Buyer
+    - function buy_artwork(
+        uint256 _artwork_id,
+        string memory _shipping_address
+    ) public payable 
+    - function delivery_confirmation(uint256 _order_id) public
 
-### `npm start`
+- ### Verifier
+    - function register_verifier() public 
+    - function get_verification_requests()
+        public
+        view
+        returns (OriginalArtwork[] memory)
+    - function verify_artwork(uint256 _original_artwork_id) public
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ### Auction 
+    - function put_up_for_auction(uint256 _artwork_id, uint256 _min_bid) public 
+    - function bid(uint256 _auction_item_id) public payable  
+    - function end_auction_seller(uint256 _auction_item_id) public 
+    - function end_auction_buyer(uint256 _auction_item_id) public 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- ### Retrieve Informations
+    - function get_original_artworks() public view returns (OriginalArtwork[] memory) 
+    - function get_artists() public view returns (Artist[] memory) 
+    - function get_artworks() public view returns (Artwork[] memory) 
+    - function get_auction_items() public view returns (AuctionItem[] memory)  
+  
+## Features:
 
-### `npm test`
+### Artist Registration
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="assets/artist_register.png" height = auto width = 700>
+<br>
 
-### `npm run build`
+### Upload Original Artwork 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="assets/upload.png" height = auto width = 700>
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Selling Artwork
 
-### `npm run eject`
+<img src="assets/sell.png" height = auto width = 700>
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Auction
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img src="assets/auction.png" height = auto width = 700>
+<br>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### Verifier Registration 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img src="assets/verifier_registration.png" height = auto width = 700>
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
